@@ -1,12 +1,12 @@
 {
-    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n\nmakeCacheMatrix <- function(x = matrix()) {\n  invm<-NULL\n  set<- function(y){\n    x<<- y\n    invm<<- NULL\n  }\n  get<- function() x\n  setinvm<- function(inversematrix) invm<<- inversematrix\n  getinvm<- function() invm\n  list(set = set, get = get,\n       setinvm = setinvm,\n       getinvm = getinvm)\n}\n\n\n## Write a short comment describing this function\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n  invm <- x$getinvm()\n  if(!is.null(invm)) {\n    message(\"getting cached data\")\n    return(invm)\n  }\n  data <- x$get()\n  invm <- solve(data, ...)\n  x$setinvm(invm)\n  invm\n}\n",
+    "contents" : "## Creates an object to store a matrix \n## and calculate and stores the inverse of the matrix\n\n\n## makeCacheMatrix() is a fuction that creates a list of fuctions:\n## creates a cache matrix for the inverse of matrix (x)\n## invm is the inverse of the matrix (x)\n## set is a fuction that sets the matrix x to a given matrix y changing the matrix to inverse\n## get retrives the input matrix (x)\n## setinvm sets the inverse matrix (invm) to a set value\n## getinvm retrieves the inverse matrix (invm)\n\nmakeCacheMatrix <- function(x = matrix()) {\n  invm<-NULL\n  set<- function(y){\n    x<<- y\n    invm<<- NULL\n  }\n  get<- function() x\n  setinvm<- function(inversematrix) invm<<- inversematrix\n  getinvm<- function() invm\n  list(set = set, get = get,\n       setinvm = setinvm,\n       getinvm = getinvm)\n}\n\n\n## Determines if the inverse of the matrix has been calculated\n## if it has been calculated it returns the inverse of the matrix (invm)\n## if it has not been calculated it calculates the inverse of the matrix using solve()\n## and returns the inverse of the matrix\n## input is the list of fuctions created in the output of the makeCacheMatrix() fuction\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n  invm <- x$getinvm()\n  if(!is.null(invm)) {\n    message(\"getting cached data\")\n    return(invm)\n  }\n  data <- x$get()\n  invm <- solve(data, ...)\n  x$setinvm(invm)\n  invm\n}\n",
     "created" : 1434917087090.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1064109121",
+    "hash" : "1811953148",
     "id" : "536B12A",
-    "lastKnownWriteTime" : 1434919244,
+    "lastKnownWriteTime" : 1434921650,
     "path" : "D:/Rcourse/ProgrammingAssignment2/cachematrix.R",
     "project_path" : "cachematrix.R",
     "properties" : {
