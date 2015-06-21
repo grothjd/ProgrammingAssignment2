@@ -1,0 +1,17 @@
+{
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n\nmakeCacheMatrix <- function(x = matrix()) {\n  invm<-NULL\n  set<- function(y){\n    x<<- y\n    invm<<- NULL\n  }\n  get<- function() x\n  setinvm<- function(inversematrix) invm<<- inversematrix\n  getinvm<- function() invm\n  list(set = set, get = get,\n       setinvm = setinvm,\n       getinvm = getinvm)\n}\n\n\n## Write a short comment describing this function\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n  invm <- x$getinvm()\n  if(!is.null(invm)) {\n    message(\"getting cached data\")\n    return(invm)\n  }\n  data <- x$get()\n  invm <- solve(data, ...)\n  x$setinvm(invm)\n  invm\n}\n",
+    "created" : 1434917087090.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1064109121",
+    "id" : "536B12A",
+    "lastKnownWriteTime" : 1434919244,
+    "path" : "D:/Rcourse/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
